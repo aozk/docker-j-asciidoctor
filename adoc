@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+#
+# `aozk/docker-j-asciidoctor` containor startup script.
+
+DOCKER_IMAGE="aozk/docker-j-asciidoctor"
+SRC_VOLUME=${PWD}
+DST_VOLUME="/doc/"
+
+exec docker run -v ${SRC_VOLUME}:${DST_VOLUME} --rm ${DOCKER_IMAGE} "$@"

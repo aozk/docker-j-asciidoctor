@@ -1,0 +1,6 @@
+[submodule "resources/extra/deck.js"]
+	path = resources/extra/deck.js
+	url = https://github.com/imakewebthings/deck.js.git
+[submodule "resources/extra/asciidoctor-deck.js"]
+	path = resources/extra/asciidoctor-deck.js
+	url = https://github.com/asciidoctor/asciidoctor-deck.js.git

@@ -1,0 +1,79 @@
+= Asciidoctor containor with PlantUML and japanese font.
+
+Docker image of asciidoctor that include PlantUML. In order to use japanese for plantuml code, this image is having japanese font(IPA).
+
+== Usage
+
+=== Basic
+
+[source,sh]
+--
+$ docker run \
+    -v ${your-asciidoc-file-directory}:/doc/ \
+    --rm \
+    aozk/docker-j-asciidoctor \
+    ${asciidoctor-options-if-necessary} \
+    ${asciidoc-file-name}
+--
+
+Follows is example that convert to html from this readme.adoc.
+
+[source,sh]
+--
+$ docker run -v ${PWD}:/doc/ --rm aozk/docker-j-asciidoctor README.adoc
+--
+
+If you want look help of asciidoctor...
+
+[source,sh]
+--
+$ docker run -v ${PWD}:/doc/ --rm aozk/docker-j-asciidoctor --help
+--
+
+=== Use script
+
+For those who do not want to enter too long commands, I prepared a simple startup script.
+
+[source,sh]
+--
+$ adoc ${asciidoctor-options-if-necessary} ${asciidoctor-file-name}
+--
+
+=== Work in containor
+
+For do some oparation on containor if you want, make overwrite entrypoint to '' and set cmd to '/bin/sh' as docker run argument.
+
+[source,sh]
+--
+$ docker run -v ${PWD}:/doc/ --rm --entrypoint="" aozk/docker-j-asciidoctor /bin/sh
+--
+
+== Dependency
+
+Docker version 18.06.01-ce or higher(may be).
+
+== Setup
+
+Pull image from dockerhub.
+
+[source,sh]
+--
+$ docker pull aozk/docker-j-asciidoctor
+--
+
+Or execute `docker build` on root directory of this project.
+
+[source,sh]
+--
+$ docker build -t .
+--
+
+== License
+
+The MIT License.
+
+== Reference
+
+- link:https://asciidoctor.org/[]
+- link:https://asciidoctor.org/docs/asciidoctor-diagram/[]
+- link:http://plantuml.com/[]
