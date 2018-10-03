@@ -20,7 +20,7 @@ RUN apk add --no-cache \
         asciidoctor-diagram \
         coderay \
         json \
-    gem install --no-document asciidoctor-pdf --pre \
+    && gem install --no-document asciidoctor-pdf --pre \
     && gem install --no-document asciidoctor-pdf-cjk \
     && apk del -r --no-cache .makedepends
 

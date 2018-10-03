@@ -89,7 +89,7 @@ Or execute `docker build` on root directory of this project.
 
 [source,sh]
 --
-$ docker build -t .
+$ docker build -t ${tagname-as-you-like} .
 --
 
 == License
