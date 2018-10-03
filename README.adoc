@@ -6,11 +6,28 @@ Docker image of asciidoctor that include PlantUML. In order to use japanese for 
 
 === Basic
 
+Following is command for convert to html.
+
 [source,sh]
 --
 $ docker run \
     -v ${your-asciidoc-file-directory}:/doc/ \
     --rm \
+    aozk/docker-j-asciidoctor \
+    ${asciidoctor-options-if-necessary} \
+    ${asciidoc-file-name}
+--
+
+Also, you can convert to pdf using asciidoctor-pdf.
+
+[source,sh]
+--
+$ docker run \
+    -v ${your-asciidoc-file-directory}:/doc/ \
+    --rm \
+    -r asciidoctor-pdf \
+    -r asciidoctor-pdf-cjk \
+    -b pdf \
     aozk/docker-j-asciidoctor \
     ${asciidoctor-options-if-necessary} \
     ${asciidoc-file-name}
@@ -32,16 +49,23 @@ $ docker run -v ${PWD}:/doc/ --rm aozk/docker-j-asciidoctor --help
 
 === Use script
 
-For those who do not want to enter too long commands, I prepared a simple startup script.
+I think that most people do not want to enter commands that are too long. So I made a simple startup script.
 
+.Convert to HTML
 [source,sh]
 --
 $ adoc ${asciidoctor-options-if-necessary} ${asciidoctor-file-name}
 --
 
+.Convert to PDF
+[source,sh]
+--
+$ apdf ${asciidoctor-options-if-necessary} ${asciidoctor-file-name}
+--
+
 === Work in containor
 
-For do some oparation on containor if you want, make overwrite entrypoint to '' and set cmd to '/bin/sh' as docker run argument.
+If you want do something oparation on containor, make overwrite entrypoint to '' and set cmd to '/bin/sh' as docker run argument.
 
 [source,sh]
 --

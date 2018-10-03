@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+#
+# `aozk/docker-j-asciidoctor` containor startup script for convert to pdf.
+
+#DOCKER_IMAGE="aozk/docker-j-asciidoctor"
+DOCKER_IMAGE="djtemp"
+ASCIIDOC_PDF="asciidoctor-pdf"
+ASCIIDOC_PDF_CJK="asciidoctor-pdf-cjk"
+SRC_VOLUME=${PWD}
+DST_VOLUME="/doc/"
+
+exec docker run -v ${SRC_VOLUME}:${DST_VOLUME} --rm ${DOCKER_IMAGE} -r ${ASCIIDOC_PDF} -r ${ASCIIDOC_PDF_CJK} -b pdf "$@"
+
