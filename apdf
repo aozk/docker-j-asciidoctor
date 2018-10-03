@@ -2,8 +2,7 @@
 #
 # `aozk/docker-j-asciidoctor` containor startup script for convert to pdf.
 
-#DOCKER_IMAGE="aozk/docker-j-asciidoctor"
-DOCKER_IMAGE="djtemp"
+DOCKER_IMAGE="aozk/docker-j-asciidoctor"
 ASCIIDOC_PDF="asciidoctor-pdf"
 ASCIIDOC_PDF_CJK="asciidoctor-pdf-cjk"
 SRC_VOLUME=${PWD}
